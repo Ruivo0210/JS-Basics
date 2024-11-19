@@ -67,4 +67,5 @@ function square(number){
     return number*number //return retorna um valor para o parametro que definimos acima.
 }
 let number = square(2); //Podemos atribuir o valor de uma variável com o retorno de uma função
-console.log(square(2)); //Ou podemos exibir diretamente o retorno da função
+console.log(square(2)); //Ou podemos exibir diretamente o retorno da função.
+//Dentro dos parênteses, temos uma chamada de função.
