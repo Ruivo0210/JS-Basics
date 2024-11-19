@@ -8,3 +8,5 @@ de rede em tempo real, linhas de comandos e ate mesmo jogos. Foi originalmente f
  o JS fora de navegadores.
 
  ECMA: Especificação do JS.
+
+ Variáveis: usadas para armanezar dados temporariamente na memoria do computador.
