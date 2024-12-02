@@ -267,3 +267,191 @@ console.log(another3);
 // *    \n -> adiciona uma nova linha a string.
 //    
 // ******************************************************************************************************
+
+// ******************************************************************************************************
+//
+// * Literais de template (``)
+//
+// * Semelhante à notação \, podemos utilizar o `` para formatarmos uma string e podermos definirmos,
+// * sem nenhuma notação, como queremos a exibição dela. É muito útil em caso de querermos trabalhar
+// * com envio de email em nossa aplicação. Aqui, podemos também trabalharmos com placeholders, ${}
+// * para trabalharmos com expressões e variáveis, como no exemplo a seguir:
+//
+// ******************************************************************************************************
+
+const name2 = 'John';
+const message = 'Hi ' + name2 + ',\n';
+
+const another =
+`Hi ${name2} ${2 + 3},
+
+Thank you for joining my mailing list.
+
+Regards,
+Mosh`;
+
+// ******************************************************************************************************
+//
+// * Objetos embutidos no JavaScript (3)
+// 
+// * Exemplos: 
+// *    Date -> Um método construtor para trabalharmos com datas. Aqui, podemos usar seis modelos 
+// *    diferentes dedatas, onde cada um funciona de uma forma. Lembrando que em alguns modelos,
+// *    os meses funcionam do 0 (janeiro) ao 11 (dezembro).
+// *        Métodos:
+// *            - .doDateString() -> retorna a data para uma string.
+// *            - .toTimeString() -> retorna a hora para uma string.
+// *            - .toISOString()  -> retorna a data e hora para uma string no modelo ISO.
+// *            - .setFullYear()  -> define o ano da variável.
+//
+// ******************************************************************************************************
+
+const now = new Date();
+const date1 = new Date('May 11 2018 09:00');
+const date2 = new Date(2018, 4, 11, 9);
+
+now.setFullYear(2017);
+
+// ******************************************************************************************************
+//
+// * Exercício 1: Address Object
+//
+// * Criar objeto de endereço com rua, cidade e CEP, em seguida criar uma função para exibir as proprie-
+// * dades do objeto.
+//
+// ******************************************************************************************************
+
+const address = {
+    street: 'Rua 5',
+    city: 'Sales Oliveira',
+    zipCode: 14620000
+};
+
+function showAddress(address){
+    for (let key in address)
+        console.log(key, address [key]);
+}
+
+showAddress(address);
+
+// ******************************************************************************************************
+//
+// * Exercício 2: Factory and Constructor Function
+//
+// * Fazer uma função de construtor e uma de fábrica para podermos iniciar uma constante address.
+//
+// ******************************************************************************************************
+
+// * Função de Fábrica:
+
+function createAddress(street, city, zipCode){
+    return{
+        street,
+        city,
+        zipCode
+    }
+}
+
+let address2 = createAddress('Rua 2', 'Sao Paulo', 19234000);
+let address3 = createAddress('Rua 2', 'Sao Paulo', 19234000);
+console.log(address2);
+
+// * Função de Construtor:
+
+function CreateAddress2(street,city,zipCode){
+    this.street = street;
+    this.city = city;
+    this.zipCode = zipCode;
+}
+
+const address4 = new CreateAddress2('Rua 1', 'Guarulhos', 12334000);
+console.log(address4);
+
+// ******************************************************************************************************
+//
+// * Exercício 3: Object Equality
+//
+// * Fazer duas funções: uma para verificar se dois objetos são idênticos, comparando seus valores, e 
+// * outra pasa ver se os dois objetos estão apontando para o mesmo objeto.
+//
+// ******************************************************************************************************
+
+function areEqual(obj1,obj2){
+    return obj1.street === obj2.street &&
+    obj1.city === obj2.city &&
+    obj1.zipCode === obj2.zipCode;
+}
+
+function areSame(obj1,obj2){
+    return obj1 === obj2;
+}
+
+// let address2 === address3 // Nesse caso, a segunda função retornaria true.
+
+console.log(areEqual(address2,address3), areSame(address2,address3));
+
+// ******************************************************************************************************
+//
+// * Exercício 4: Blog Post Object
+//
+// * Criar um objeto com as seguinter propriedades:
+// * title
+// * body
+// * author
+// * views
+// * comments
+// *    (author,body)
+// * isLive
+//
+// ******************************************************************************************************
+
+const blogPost = {
+    title: 'Comentario 1',
+    body: 'Comentario de exemplo ao exercicio',
+    author: 'Exemplo da Silva',
+    views: 80,
+    comments: [
+        {author: 'Exemplo Pereira', body: 'Discordo do exemplo acima'}
+    ],
+    isLive: true
+};
+
+console.log(blogPost);
+
+// ******************************************************************************************************
+//
+// * Exercício 5: Constructor Functions
+//
+// * Criar um métodode construção para o exercício anterior.
+//
+// ******************************************************************************************************
+
+function CreatePost(title,body,author){ // Views, comments e isLive não são definidas pelo usuário.
+    this.title = title;
+    this.body = body;
+    this.author = author;
+    this.views = 0;
+    this.comments = [];
+    this.isLive = false
+}
+
+const Post = new CreatePost('Titulo 1', 'Comentario 1', 'Autor 1');
+console.log(Post);
+
+// ******************************************************************************************************
+//
+// * Exercício 6: Price Range Object
+//
+// * Criar um objeto para três faixas diferentes de preços de produtos.
+//
+// ******************************************************************************************************
+
+let priceRanges = [
+    { label: '$', tooltip: 'Inexpensive', minPerPerson: 0, maxPerPerson: 10 },
+    { label: '$$', tooltip: 'Moderate', minPerPerson: 11, maxPerPerson: 20 },
+    { label: '$$$', tooltip: 'Expensive', minPerPerson: 21, maxPerPerson: 50 },
+];
+
+let restaurants = [
+    { averagePerPerson: 5}
+]
