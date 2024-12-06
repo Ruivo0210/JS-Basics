@@ -342,7 +342,7 @@ const video3 = {
 
 video3.showTags();
 
-// Terceira abordagem: utilizando a função de seta (=>)
+// Terceira abordagem: utilizando a função de seta (=>). O melhor método.
 
 const video4 = {
     title: 'a',
