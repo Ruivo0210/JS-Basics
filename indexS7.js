@@ -228,3 +228,130 @@ console.log(person2);
 //
 // ******************************************************************************************************
 
+// ******************************************************************************************************
+//
+// * A palavra "This"
+//
+// * Referencia o objeto que está atualmente executando a função. Quando utilizamos o this dentro de um
+// * método, ele irá se referenciar ao objeto, e qunado utilizamos dentro de uma função, ele irá
+// * referenciar a Window, global.
+//
+// ******************************************************************************************************
+
+// Exemplo 1: Usando o This para referenciar uma propriedade do próprio objeto
+
+const video = {
+    title: 'a',
+    play(){
+        console.log(this);
+    }
+};
+
+video.play();
+
+// Adicionando uma função dentro de um objeto (método)
+video.stop = function(){
+    console.log(this);
+};
+
+video.stop();
+
+
+// Exemplo 2: Usando o This para tentar referenciar uma propriedade dentro de uma função
+
+function playVideo(){
+    console.log(this);
+}
+
+playVideo(); // Aqui, o retorno é a Window
+
+// Exemplo 2: Usando o This para tentar referenciar uma propriedade dentro de uma função
+
+function Video(title){
+    this.title = title;
+    console.log(this);
+}
+
+const v = new Video('b'); // Aqui, o retorno é o objeto, pois estamos usando um método construtor.
+
+const video1 = {
+    title: 'a',
+    tags: ['a','b','c'],
+    showTags(){
+        this.tags.forEach(function(tag){ // Como temos uma função comum aqui, ela irá referenciar o window.
+            console.log(this, tag);
+        }, this); // O método forEach recebe um segundo fator para referenciar o próprio objeto.
+        // Caso não declarado, a função irá referenciar a Window.
+    }
+};
+
+video1.showTags();
+
+// ******************************************************************************************************
+//
+// * Como alterar o This para que ele referencie o objeto
+//
+// ******************************************************************************************************
+
+// Primeira abordagem: criando uma constante para o objeto referenciar a ele mesmo. Não é ideal.
+
+const video2 = {
+    title: 'a',
+    tags: ['a','b','c'],
+    showTags(){
+        const self = this;
+        this.tags.forEach(function(tag){ 
+            console.log(self.title, tag);
+        }, this);
+    }
+};
+
+video2.showTags();
+
+// Segunda abordagem: utilizando os métodos Call, Apply e Bind
+
+function playVideo1() {
+    console.log(this);
+}
+
+// A única diferença entre os dois é que, ao passar um segundo argumento ao método, no caso do apply, devemos
+// colocar esses argumentos dentro de uma array.
+
+playVideo1.call({name: 'João'}, 1, 2);
+playVideo1.apply({name: 'João'}, [1,2]);
+
+// No caso do Bind, ele cria uma nova funçao assicada à aquele objeto
+
+playVideo1.bind({name: 'João'})();
+
+// Window
+
+playVideo1(); 
+
+// Resolvendo o primeiro exemplo utilizando o Bind
+
+const video3 = {
+    title: 'a',
+    tags: ['a','b','c'],
+    showTags(){
+        this.tags.forEach(function(tag){ 
+            console.log(this.title, tag);
+        }.bind(this));
+    }
+};
+
+video3.showTags();
+
+// Terceira abordagem: utilizando a função de seta (=>)
+
+const video4 = {
+    title: 'a',
+    tags: ['a','b','c'],
+    showTags(){
+        this.tags.forEach(tag => { 
+            console.log(this.title, tag);
+        });
+    }
+};
+
+video4.showTags();
