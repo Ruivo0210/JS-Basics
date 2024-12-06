@@ -1,3 +1,5 @@
+// ******************************************************************************************************
+
 //Operadores: usados com variáveis e constantes para criar expressões. Com essas expressões, podemos implementar lógicas e
 //algoritmos. Temos oepradores aritimeticos, operadores de atribuicao, de comparacao, de logica e de bit.
 
@@ -95,3 +97,5 @@ b5 = c5; // trocamos o valor de b para o backup de a
 
 console.log(a5);
 console.log(b5);
+
+// ******************************************************************************************************

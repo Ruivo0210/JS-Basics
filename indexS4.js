@@ -1,3 +1,5 @@
+// ******************************************************************************************************
+
 //Declarações condicionais:
 //If/Else:
 //Usados para verificar se um valor atende a uma condição. Caso atenda, execute as declarações
@@ -286,3 +288,5 @@ function isPrime(number) {
 }
 
 // Quando temos loops aninhados, podemos separa-los em diferentes funções.
+
+// ******************************************************************************************************

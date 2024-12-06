@@ -1,3 +1,22 @@
+// ******************************************************************************************************
+
+// ******************************************************************************************************
+//
+// * O que é o JavaScript?
+//
+// * É uma linguagem de programação, usada para construir aplicações web, mobile, aplicativos 
+// * de rede em tempo real, linhas de comandos e ate mesmo jogos. Foi originalmente feito para
+// * funcionar somente em navegaores. Todo navegador possui uma engine de JS. 
+//
+// * Node: um programa em C++ que inclui a engine do Google, que permite que possamos executar
+// * o JS fora de navegadores.
+//
+// * ECMA: Especificação do JS.
+//
+// * Variáveis: usadas para armanezar dados temporariamente na memoria do computador.
+// 
+// ******************************************************************************************************
+
 // This is my first JavaScript Code!
 console.log ('Hello World'); 
 // Declaração: pedaço de código que define uma ação a ser executada. Código em JS deve ser terminado
@@ -69,3 +88,5 @@ function square(number){
 let number = square(2); //Podemos atribuir o valor de uma variável com o retorno de uma função
 console.log(square(2)); //Ou podemos exibir diretamente o retorno da função.
 //Dentro dos parênteses, temos uma chamada de função.
+
+// ******************************************************************************************************
