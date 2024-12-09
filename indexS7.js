@@ -355,3 +355,74 @@ const video4 = {
 };
 
 video4.showTags();
+
+// ******************************************************************************************************
+//
+// * Exercicio 1:
+//
+// * Criar uma função que realiza a soma de todos os argumentos e detecta se é um array
+//
+// ******************************************************************************************************
+
+function sum2(...args){
+    if (Array.isArray(args[0]) === true)
+        return(args[0].reduce((acumulador, valorAtual) => acumulador + valorAtual, 0));
+    return args.reduce((a,b) => a+b);
+}
+
+console.log(sum2(1,3,5,10));
+
+// Resolução:
+
+function sum3(...args){
+    if (args.length === 1 && Array.isArray(args[0]))
+        args = [...args[0]];
+    return args.reduce((a,b) => a+b);
+}
+
+console.log(sum3(1,3,5,10));
+
+// ******************************************************************************************************
+//
+// * Exercício 2:
+//
+// * Criar um objeto "Círculo", usando a sintaxe de objeto literal, com uma propriedade de leitura
+//
+// ******************************************************************************************************
+
+const circle = {
+    radius: 1,
+    get area(){
+        return Math.PI * this.radius * this.radius;
+    }
+};
+
+console.log(circle.area);
+
+// ******************************************************************************************************
+//
+// * Exercício 3
+//
+// * Adicionar error handling em uma função
+//
+// ******************************************************************************************************
+try{
+    const counter = [1, 2, 3];
+    const count1 = countOcurrences1(null, 1);
+    console.log(count1);
+}
+catch (e) {
+    console.log(e.message);
+}
+
+function countOcurrences1(array, searchElement){
+    if (!Array.isArray(array))
+        throw new Error('Invalid array.')
+    return array.reduce((accumulator,current) => {
+        const occurrence = (current === searchElement) ? 1 : 0;
+        console.log(accumulator, current, searchElement);
+        return accumulator + occurrence;
+    }, 0);
+}
+
+// ******************************************************************************************************
